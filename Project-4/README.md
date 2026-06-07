@@ -1,0 +1,106 @@
+# 📊 Part A - Theoretical Foundation
+
+---
+
+## 📘 1. What is Statistical Distributions?
+
+▶ A statistical distribution describes how the values of a random variable are spread (or distributed) across possible outcomes.
+
+* 💡 **Core Value:** It helps engineers instantly locate where the majority of transactions accumulate, paving the way to identify anomalous outliers or average milestones.
+
+---
+
+## 📈 2. What is a Q-Q Plot and why is it used?
+
+▶ A Q-Q plot is a graphical tool to check whether a dataset follows a particular theoretical distribution (often the Normal distribution).
+
+### 📌 Components:
+* **X-axis** → Theoretical quantiles (from the chosen distribution).
+* **Y-axis** → Sample quantiles (from your dataset).
+
+### 📊 Interpretation:
+* 🗹 **Normal Data:** The points fall nearly along the diagonal line, meaning the data is approximately normally distributed.
+* ☒ **Non-Normal Data:** Any clear curvature or S-shape twisting away from the line graphically alerts the team to structural non-normality.
+
+---
+
+## 🔀 3. Difference Between Discrete and Continuous Distributions
+
+| Dimensional Aspect | 🎲 Discrete Distribution | 🌊 Continuous Distribution |
+| :--- | :--- | :--- |
+| **Data Nature** | Bounded counts, whole numbers, and integer values (No decimals possible). | Unbounded real numbers, dimensions, and decimal values. |
+| **Measurement Example** | Number of successful checkout orders (e.g., 1, 2, 3 items). | Exact transaction amounts processed (e.g., ₹234.50). |
+| **Probability Density** | Calculated directly via a **Probability Mass Function (PMF)**. | Evaluated via a continuous **Probability Density Function (PDF)**. |
+| **Visual Mapping** | Represented using isolated step bars or standalone histograms. | Illustrated using a smooth, unbroken probability curve. |
+
+---
+
+## 🪙 4. What is a Bernoulli Distribution?
+
+▶ The Bernoulli Distribution is a discrete statistical probability modeling system that evaluates an individual experiment containing exactly two mutually exclusive outcomes: **Success** (1) or **Failure** (0).
+
+* **Formula:** $P(X = x) = p^x (1-p)^{1-x}$
+* 📌 **Project Application:** We use it to model individual transaction attempt statuses (`Success` vs. `Fail`), establishing our baseline checkout conversion probability metric ($p = 0.45$).
+
+---
+
+## 🔄 5. What is a Binomial Distribution?
+
+▶ The Binomial Distribution represents the statistical accumulation of multiple independent Bernoulli trials executed over a fixed timeframe. It calculates the exact probability of achieving precisely $k$ successes across $n$ total identical sequences.
+
+* **Formula:** $P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$
+* 📌 **Project Application:** It handles weekly customer transaction frequency metrics. It calculates how likely a user is to execute a specific number of successful purchases over a bounded series of shopping attempts.
+
+---
+
+## 🪵 6. Explain Log-Normal Distribution
+
+▶ A Log-Normal Distribution is a continuous probability distribution of a random variable whose natural logarithm results in a classic normal distribution shape. It describes metrics that are strictly positive (> 0) and heavily right-skewed.
+
+* 📈 **E-Commerce Context:** It perfectly reflects natural platform purchasing behavior. The majority of transaction amounts remain concentrated at lower price tiers, while a long, extended right tail captures sporadic, premium high-value spending events.
+
+---
+
+## ⚡ 7. Explain Power Law Distribution
+
+▶ A Power Law / Pareto Distribution describes a functional relationship where a relative change in one evolutionary metric triggers a proportional power-based change in another, regardless of the initial scale of those quantities. It defines the classic **80/20 Rule**.
+
+* **Formula:** $P(X > x) \propto x^{-\alpha}$
+* 👑 **E-Commerce Context:** It flags extreme system inequalities. For example, a small fraction of "whale spenders" accounts for the vast majority of gross merchandise value (GMV), meaning top-tier outliers scale exponentially higher than the platform average.
+
+---
+
+## 🛠️ 8. What is a Box-Cox Transform?
+
+▶ The Box-Cox Transform is an adaptive parametric power transformation method designed to convert highly skewed, non-normal variables into a symmetrical normal shape.
+
+* **Formula:** $$y(\lambda) = \begin{cases} \frac{y^\lambda - 1}{\lambda} & \text{if } \lambda \neq 0 \\ \ln(y) & \text{if } \lambda = 0 \end{cases}$$
+* ⚙️ **Why We Use It:** Many advanced machine learning estimators require uniform, non-skewed variance to output stable forecasts. Applying the optimal calculated Lambda ($\lambda$) parameters successfully stabilizes variance anomalies and neutralizes heavily skewed transaction anomalies.
+
+---
+
+## ⏱️ 9. Explain Poisson Distribution with an Example
+
+▶ The Poisson Distribution is a discrete statistical system that calculates the absolute probability of a specific number of random events occurring within a fixed, independent interval of time or space. It relies on a constant average arrival rate ($\lambda$).
+
+* **Formula:** $P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}$
+* 💡 **E-Commerce Production Example:** Suppose an online platform receives an average of 2.85 order arrivals per minute. A Poisson model allows dev teams to calculate the exact probability of experiencing an unexpected traffic spike of 8 or more concurrent requests during the same minute, ensuring server infrastructure stays properly provisioned.
+
+---
+
+## 🎯 10. What is Z-Score Probability?
+
+▶ A Z-Score measures the exact distance a raw tracking metric sits from the global mean, expressed in units of standard deviation.
+
+* **Formula:** $Z = \frac{X - \mu}{\sigma}$
+* 🛡️ **Why We Use It:** Standardizing raw sales figures into Z-scores allows us to use standard normal survival distribution metrics. This lets us calculate the exact probability of rare events, such as a premium buyer exceeding a ₹5000 transaction threshold (calculated at a 20.52% baseline probability).
+
+---
+
+## 📊 11. Differentiate Probability Density Function (PDF) and Cumulative Distribution Function (CDF)
+
+▶ Continuous metrics require distinct viewpoints to extract practical business intelligence:
+
+### 📐 Comparison Overview:
+* **PDF (Probability Density)** → Shows where values cluster and where the data is most concentrated.
+* **CDF (Cumulative Probability)** → Shows the running percentile total (the probability that the variable takes a value less than or equal to $x$).
