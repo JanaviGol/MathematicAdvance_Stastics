@@ -1,4 +1,4 @@
-# <p align="center">📊 Comprehensive Project Report: Financial Risk & Loan Default Analysis</p>
+# <p align="center">📊 Comprehensive Project Report: Financial Risk & Loan Default Analysis :</p>
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.8%2B-blue?style=for-the-badge&logo=python" alt="Python">
   <img src="https://img.shields.io/badge/Business%20Statistics-Descriptive%20%26%20Inferential-red?style=for-the-badge" alt="Business Statistics">
